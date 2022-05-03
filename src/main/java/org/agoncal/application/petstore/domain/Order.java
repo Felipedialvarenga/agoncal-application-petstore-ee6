@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * @author Antonio Goncalves
@@ -17,6 +18,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = Order.FIND_ALL, query = "SELECT o FROM Order o")
 })
+@Getter
 public class Order {
 
     // ======================================
@@ -92,40 +94,16 @@ public class Order {
     // =         Getters & setters          =
     // ======================================
 
-    public Long getId() {
-        return id;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public List<OrderLine> getOrderLines() {
-        return orderLines;
     }
 
     public void setOrderLines(List<OrderLine> orderLines) {
         this.orderLines = orderLines;
     }
 
-    public Address getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
     public void setDeliveryAddress(Address deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
-    }
-
-    public CreditCard getCreditCard() {
-        return creditCard;
     }
 
     public void setCreditCard(CreditCard creditCard) {

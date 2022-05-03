@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import lombok.Getter;
 
 /**
  * @author Antonio Goncalves
@@ -22,6 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
         @NamedQuery(name = Item.FIND_ALL, query = "SELECT i FROM Item i")
 })
 @XmlRootElement
+@Getter
 public class Item {
 
     // ======================================
@@ -74,44 +76,20 @@ public class Item {
     // =         Getters & setters          =
     // ======================================
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Float getUnitCost() {
-        return unitCost;
     }
 
     public void setUnitCost(Float unitCost) {
         this.unitCost = unitCost;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
     public void setProduct(Product product) {
         this.product = product;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setDescription(String description) {

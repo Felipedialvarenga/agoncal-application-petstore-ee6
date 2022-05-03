@@ -13,6 +13,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * @author Antonio Goncalves
@@ -24,6 +25,7 @@ import java.util.List;
 @ConversationScoped
 @Loggable
 @CatchException
+@Getter
 public class ShoppingCartController extends Controller implements Serializable {
 
     // ======================================
@@ -32,10 +34,13 @@ public class ShoppingCartController extends Controller implements Serializable {
 
     @Inject
     @LoggedIn
+    @Getter(AccessLevel.NONE)
     private Instance<Customer> loggedInCustomer;
     @Inject
+    @Getter(AccessLevel.NONE)
     private CatalogService catalogBean;
     @Inject
+    @Getter(AccessLevel.NONE)
     private OrderService orderBean;
     @Inject
     private Conversation conversation;
@@ -105,10 +110,6 @@ public class ShoppingCartController extends Controller implements Serializable {
         return "orderconfirmed.faces";
     }
 
-    public List<CartItem> getCartItems() {
-        return cartItems;
-    }
-
     public boolean shoppingCartIsEmpty() {
         return getCartItems() == null || getCartItems().size() == 0;
     }
@@ -136,25 +137,12 @@ public class ShoppingCartController extends Controller implements Serializable {
         return loggedInCustomer.get();
     }
 
-
-    public CreditCard getCreditCard() {
-        return creditCard;
-    }
-
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
     public void setOrder(Order order) {
         this.order = order;
-    }
-
-    public Conversation getConversation() {
-        return conversation;
     }
 
     public CreditCardType[] getCreditCardTypes() {

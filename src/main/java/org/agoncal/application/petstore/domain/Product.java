@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * @author Antonio Goncalves
@@ -22,6 +23,7 @@ import java.util.List;
         @NamedQuery(name = Product.FIND_ALL, query = "SELECT p FROM Product p")
 })
 @XmlRootElement
+@Getter
 public class Product {
 
     // ======================================
@@ -70,28 +72,12 @@ public class Product {
     // =         Getters & setters          =
     // ======================================
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Category getCategory() {
-        return category;
     }
 
     public void setCategory(Category category) {
@@ -102,10 +88,6 @@ public class Product {
         if (items == null)
             items = new ArrayList<Item>();
         items.add(item);
-    }
-
-    public List<Item> getItems() {
-        return items;
     }
 
     public void setItems(List<Item> items) {
