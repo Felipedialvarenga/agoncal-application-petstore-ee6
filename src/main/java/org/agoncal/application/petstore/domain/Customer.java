@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import lombok.Getter;
+import lombok.AccessLevel;
+import lombok.Setter;
 
 /**
  * @author Antonio Goncalves
@@ -29,6 +31,7 @@ import lombok.Getter;
 })
 @XmlRootElement
 @Getter
+@Setter
 public class Customer implements Serializable {
 
     // ======================================
@@ -37,6 +40,7 @@ public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private Long id;
     @Column(unique = true, nullable = false, length = 10)
     @Login
@@ -63,6 +67,7 @@ public class Customer implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     @Transient
+    @Setter(AccessLevel.NONE)
     private Integer age;
 
     // ======================================
@@ -140,39 +145,6 @@ public class Customer implements Serializable {
     // ======================================
     // =         Getters & setters          =
     // ======================================
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setHomeAddress(Address homeAddress) {
-        this.homeAddress = homeAddress;
-    }
-
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
     // ======================================
     // =   Methods hash, equals, toString   =

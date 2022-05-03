@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Antonio Goncalves
@@ -16,6 +17,7 @@ import lombok.Getter;
 
 @Embeddable
 @Getter
+@Setter
 public class CreditCard {
 
     // ======================================
@@ -51,19 +53,7 @@ public class CreditCard {
     // ======================================
     // =         Getters & setters          =
     // ======================================
-
-    public void setCreditCardNumber(String creditCardNumber) {
-        this.creditCardNumber = creditCardNumber;
-    }
-
-    public void setCreditCardType(CreditCardType creditCardType) {
-        this.creditCardType = creditCardType;
-    }
-
-    public void setCreditCardExpDate(String creditCardExpDate) {
-        this.creditCardExpDate = creditCardExpDate;
-    }
-
+    
     // ======================================
     // =   Methods hash, equals, toString   =
     // ======================================

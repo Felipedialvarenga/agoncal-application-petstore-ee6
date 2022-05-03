@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
+import lombok.AccessLevel;
+import lombok.Setter;
 
 /**
  * @author Antonio Goncalves
@@ -26,6 +28,7 @@ import lombok.Getter;
 })
 @XmlRootElement
 @Getter
+@Setter
 public class Category {
 
     // ======================================
@@ -34,6 +37,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private Long id;
     @Column(nullable = false, length = 30)
     @NotNull
@@ -70,22 +74,10 @@ public class Category {
     // =         Getters & setters          =
     // ======================================
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void addProduct(Product product) {
         if (products == null)
             products = new ArrayList<Product>();
         products.add(product);
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     // ======================================

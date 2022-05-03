@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import lombok.Getter;
+import lombok.AccessLevel;
+import lombok.Setter;
 
 /**
  * @author Antonio Goncalves
@@ -24,6 +26,7 @@ import lombok.Getter;
 })
 @XmlRootElement
 @Getter
+@Setter
 public class Item {
 
     // ======================================
@@ -32,6 +35,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private Long id;
     @Column(nullable = false, length = 30)
     @NotNull
@@ -75,26 +79,6 @@ public class Item {
     // ======================================
     // =         Getters & setters          =
     // ======================================
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUnitCost(Float unitCost) {
-        this.unitCost = unitCost;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     // ======================================
     // =   Methods hash, equals, toString   =

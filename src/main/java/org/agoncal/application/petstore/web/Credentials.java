@@ -3,6 +3,7 @@ package org.agoncal.application.petstore.web;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Antonio Goncalves
@@ -13,6 +14,7 @@ import lombok.Getter;
 @Named
 @RequestScoped
 @Getter
+@Setter
 public class Credentials {
 
     // ======================================
@@ -26,16 +28,5 @@ public class Credentials {
     // ======================================
     // =         Getters & setters          =
     // ======================================
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setPassword2(String password2) {
-        this.password2 = password2;
-    }
+    
 }
